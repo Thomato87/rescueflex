@@ -8,6 +8,8 @@ import { Differentiators } from "@/components/sections/Differentiators";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+import { CustomCursor } from "@/components/ui/custom-cursor";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { brand } from "@/data/brand";
 
 export default function Home() {
@@ -39,6 +41,8 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <CustomCursor />
+      <ScrollToTop />
     </>
   );
 }

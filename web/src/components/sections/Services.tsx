@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Separator } from "@/components/ui/separator";
 import { FadeIn } from "@/lib/motion";
 import { brand, type Offer } from "@/data/brand";
 
@@ -60,7 +59,7 @@ function ServiceRow({ offer, index }: { offer: Offer; index: number }) {
             className="overflow-hidden"
           >
             <div className="px-6 pb-10 md:px-12 lg:px-24">
-              <div className="ml-0 md:ml-26 grid grid-cols-1 gap-8 border-t border-border pt-8 md:grid-cols-[1fr_1fr] md:gap-12">
+              <div className="grid grid-cols-1 gap-8 border-t border-border pt-8 md:grid-cols-[1fr_1fr] md:gap-12">
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {offer.description}
                 </p>

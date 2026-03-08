@@ -1,7 +1,12 @@
 /**
  * Brand data layer – single source of truth derived from /brand/*.md
  * All content, copy, and structure originates from these markdown files.
+ * Images: Unsplash (free commercial use, images.unsplash.com)
  */
+
+// Unsplash CDN helper – keeps URLs clean and consistent
+const unsplash = (id: string, w = 1400, q = 85) =>
+  `https://images.unsplash.com/${id}?w=${w}&q=${q}&auto=format&fit=crop`;
 
 export const brand = {
   name: "RescueFlex",
@@ -30,7 +35,14 @@ export const brand = {
     headline: ["Wenn es", "darauf", "ankommt."],
     body: "Professionelle Einsatzplanung und medizinische Absicherung für Gemeinden, Unternehmen und Veranstaltungen – zuverlässig, praxisnah, flexibel.",
     cta: { primary: "Anfrage stellen", secondary: "Leistungen ansehen" },
+    // Jason Jarrach – paramedic/EMS portrait (Unsplash free)
+    image: unsplash("photo-1653150756437-41454967e9f5", 1600),
+    imageAlt: "Rettungssanitäter im Einsatz",
   },
+
+  // Editorial image for Differentiators section
+  // Mathurin NAPOLY – French EMT (Unsplash free)
+  differentiatorImage: unsplash("photo-1642438114426-bad6b9ce05da", 2000),
 
   trust: [
     { label: "Rettungsdienst-Erfahrung", detail: "Aus aktiven Einsätzen" },
@@ -52,6 +64,9 @@ export const brand = {
         "Koordination mit regionalen Rettungsdiensten",
         "Einsatzplanung nach Veranstaltungsgrösse",
       ],
+      // Mufid Majnun – ambulance oversight during physical training exercise
+      image: unsplash("photo-1721827160416-ff4c720861bc", 900),
+      imageAlt: "Sanitätsdienst am Veranstaltungsort",
     },
     {
       id: "02",
@@ -65,6 +80,9 @@ export const brand = {
         "Erstellung eines strukturierten Sicherheitskonzeptes",
         "Empfehlungen für Notfallabläufe und Ressourcen",
       ],
+      // Jonas Augustin – Rettungsdienst Hannover
+      image: unsplash("photo-1633521251334-108664119318", 900),
+      imageAlt: "Rettungsfahrzeug Einsatz",
     },
     {
       id: "03",
@@ -78,6 +96,9 @@ export const brand = {
         "Unterstützung bei der Planung medizinischer Absicherung",
         "Erfahrungsaustausch aus dem aktiven Einsatz",
       ],
+      // Maxence Commun – team in uniforms
+      image: unsplash("photo-1605881121733-53a18d5a12fe", 900),
+      imageAlt: "Rettungsteam Besprechung",
     },
     {
       id: "04",
@@ -90,6 +111,9 @@ export const brand = {
         "Kurzfristige oder geplante Verfügbarkeit",
         "Nahtlose Integration in bestehende Teams",
       ],
+      // Jonas Augustin – Rettungswagen Berufsfeuerwehr Salzgitter
+      image: unsplash("photo-1633521249135-2b4920138ca3", 900),
+      imageAlt: "Rettungsfahrzeug Springerdienst",
     },
   ],
 

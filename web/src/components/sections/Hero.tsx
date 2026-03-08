@@ -94,27 +94,45 @@ export function Hero() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, delay: 0.3, ease: reveal }}
       >
-        {/* Subtle dot-grid overlay */}
+        {/* Colour-correction overlay — lightens + neutralises green cast (light) / darkens (dark) */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 z-10 opacity-[0.12]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, oklch(0.55 0 0) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-          }}
+          className="pointer-events-none absolute inset-0 z-10 dark:hidden"
+          style={{ background: "oklch(0.96 0.012 255 / 0.42)" }}
         />
-        {/* Gradient fade on the left edge (desktop) */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 hidden w-24 bg-gradient-to-r from-background to-transparent lg:block"
+          className="pointer-events-none absolute inset-0 z-10 hidden dark:block"
+          style={{ background: "oklch(0.13 0.028 258 / 0.55)" }}
+        />
+        {/* Gradient fades — all edges */}
+        {/* Left (desktop): very wide, bleeds deep into image */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 hidden lg:block"
+          style={{ width: "65%", background: "linear-gradient(to right, var(--background) 0%, var(--background) 20%, color-mix(in oklch, var(--background) 60%, transparent) 55%, transparent 100%)" }}
+        />
+        {/* Top fade (all sizes) */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-40 bg-gradient-to-b from-background via-background/50 to-transparent"
+        />
+        {/* Bottom fade (all sizes) */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-48 bg-gradient-to-t from-background via-background/50 to-transparent"
+        />
+        {/* Right fade (desktop) */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-16 bg-gradient-to-l from-background to-transparent lg:block"
         />
         <Image
           src={brand.hero.image}
           alt={brand.hero.imageAlt}
           fill
           priority
-          className="object-cover object-top"
+          className="object-cover object-top opacity-80"
           sizes="(max-width: 1024px) 100vw, 42vw"
         />
       </motion.div>

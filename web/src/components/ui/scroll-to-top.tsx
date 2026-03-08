@@ -1,14 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-
-// Snake S-curves winding around the staff within the star
-const SNAKE = "M 24,12 C 29,15.5 19,19 24,22.5 C 29,26 19,29.5 24,33";
-const DASH_PERIOD = 8; // segment (4) + gap (4)
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 
 export function ScrollToTop() {
   const [visible, setVisible] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const fillOpacity = useTransform(scrollYProgress, [0.05, 0.95], [0, 1]);
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 500);
@@ -30,32 +28,42 @@ export function ScrollToTop() {
           className="fixed bottom-8 right-8 z-50 drop-shadow-lg"
           aria-label="Nach oben scrollen"
         >
-          <svg viewBox="0 0 48 48" width="54" height="54" fill="none" aria-hidden>
-            {/* Star of Life — 3 overlapping rectangles at 0°, 60°, 120° */}
-            <g style={{ fill: "var(--brand)" }}>
+          <svg viewBox="0 0 48 48" width="52" height="52" fill="none" aria-hidden>
+            {/* Star of Life — 3 filled rectangles at 0°, 60°, 120° */}
+            <g style={{ fill: "var(--brand)" }} opacity={1}>
+              {/* Unfilled outline — always visible */}
+              <rect x="17" y="2"  width="14" height="44" rx="2.5" fillOpacity={0.15} />
+              <rect x="17" y="2"  width="14" height="44" rx="2.5" transform="rotate(60  24 24)" fillOpacity={0.15} />
+              <rect x="17" y="2"  width="14" height="44" rx="2.5" transform="rotate(120 24 24)" fillOpacity={0.15} />
+            </g>
+            <motion.g style={{ fill: "var(--brand)", fillOpacity }}>
               <rect x="17" y="2"  width="14" height="44" rx="2.5" />
               <rect x="17" y="2"  width="14" height="44" rx="2.5" transform="rotate(60  24 24)" />
               <rect x="17" y="2"  width="14" height="44" rx="2.5" transform="rotate(120 24 24)" />
-            </g>
+            </motion.g>
 
-            {/* Staff — Rod of Asclepius */}
+            {/* Staff */}
             <line
               x1="24" y1="10" x2="24" y2="38"
-              stroke="white"
-              strokeWidth="2.2"
-              strokeLinecap="round"
+              stroke="white" strokeWidth="2" strokeLinecap="round"
             />
 
-            {/* Snake — marching dashes winding upward */}
-            <motion.path
-              d={SNAKE}
+            {/* Snake — static S-curve, Rod of Asclepius style */}
+            <path
+              d="M 24,12 C 29,14.5 19,18 24,21.5 C 29,25 19,28.5 24,32"
               stroke="white"
-              strokeWidth="2.2"
+              strokeWidth="2"
               strokeLinecap="round"
               fill="none"
-              strokeDasharray="4 4"
-              animate={{ strokeDashoffset: [0, DASH_PERIOD] }}
-              transition={{ duration: 0.75, repeat: Infinity, ease: "linear" }}
+            />
+
+            {/* Snake head — small upward flick */}
+            <path
+              d="M 24,12 C 22,10.5 21,9 23,8"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              fill="none"
             />
           </svg>
         </motion.button>

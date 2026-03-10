@@ -89,7 +89,7 @@ export function Hero() {
 
       {/* ── RIGHT COLUMN ── portrait image */}
       <motion.div
-        className="relative h-72 w-full overflow-hidden lg:h-auto lg:w-[42%] lg:shrink-0"
+        className="absolute inset-x-0 top-0 z-0 h-[480px] w-full overflow-hidden lg:relative lg:inset-auto lg:z-auto lg:h-auto lg:w-[42%] lg:shrink-0"
         initial={{ opacity: 0, scale: 1.04 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, delay: 0.3, ease: reveal }}
@@ -97,7 +97,7 @@ export function Hero() {
         {/* Colour-correction overlay — lightens + neutralises green cast (light) / darkens (dark) */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 z-10 dark:hidden"
+          className="pointer-events-none absolute inset-0 z-10 hidden dark:hidden lg:block"
           style={{ background: "oklch(0.96 0.012 255 / 0.42)" }}
         />
         <div
@@ -115,12 +115,12 @@ export function Hero() {
         {/* Top fade (all sizes) */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-40 bg-gradient-to-b from-background via-background/50 to-transparent"
+          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-20 lg:h-40 bg-gradient-to-b from-background via-background/50 to-transparent"
         />
         {/* Bottom fade (all sizes) */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-48 bg-gradient-to-t from-background via-background/50 to-transparent"
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden h-48 bg-gradient-to-t from-background via-background/50 to-transparent lg:block"
         />
         {/* Right fade (desktop) */}
         <div
@@ -132,7 +132,7 @@ export function Hero() {
           alt={brand.hero.imageAlt}
           fill
           priority
-          className="object-cover object-top opacity-80"
+          className="object-cover object-top opacity-50 lg:opacity-80"
           sizes="(max-width: 1024px) 100vw, 42vw"
         />
       </motion.div>

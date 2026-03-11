@@ -68,8 +68,8 @@ export function Contact() {
   }
 
   return (
-    <section id="kontakt" className="mx-auto max-w-7xl px-6 py-28 md:px-12 lg:px-24">
-      <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
+    <section id="kontakt" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-28 md:px-12 lg:px-24">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16 lg:gap-24">
         {/* Left – info */}
         <FadeIn className="flex flex-col gap-10">
           <div className="flex flex-col gap-3">
@@ -112,7 +112,7 @@ export function Contact() {
         {/* Right – form */}
         <FadeIn delay={0.15} className="flex flex-col gap-6">
           {formState === "success" ? (
-            <div className="flex flex-col items-center gap-4 rounded-sm border border-border bg-muted/30 p-12 text-center">
+            <div className="flex flex-col items-center gap-4 rounded-sm border border-border bg-muted/30 p-8 text-center sm:p-12">
               <CheckCircle2 className="h-8 w-8 text-brand" />
               <div className="flex flex-col gap-1">
                 <p className="font-medium">Vielen Dank für Ihre Anfrage.</p>

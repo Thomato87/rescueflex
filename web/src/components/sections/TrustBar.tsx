@@ -5,8 +5,8 @@ import { brand } from "@/data/brand";
 export function TrustBar() {
   return (
     <section className="border-y border-border bg-muted/40">
-      <div className="mx-auto max-w-7xl px-6 py-12 md:px-12 lg:px-24">
-        <Stagger className="grid grid-cols-2 gap-8 md:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 md:px-12 lg:px-24">
+        <Stagger className="grid grid-cols-2 gap-5 sm:gap-8 md:grid-cols-4">
           {brand.trust.map((item, i) => (
             <StaggerItem key={i}>
               <div className="flex flex-col gap-1">

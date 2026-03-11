@@ -16,21 +16,21 @@ function ServiceRow({ offer, index }: { offer: Offer; index: number }) {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="group w-full py-8 text-left transition-colors hover:bg-muted/20 md:py-10"
+        className="group w-full py-5 text-left transition-colors hover:bg-muted/20 sm:py-8 md:py-10"
       >
-        <div className="flex items-center gap-6 px-6 md:px-12 lg:px-24">
+        <div className="flex items-center gap-3 px-4 sm:gap-6 sm:px-6 md:px-12 lg:px-24">
           {/* Large number */}
           <span
             aria-hidden
-            className="w-20 shrink-0 text-right font-light tabular-nums text-muted-foreground/25 transition-colors group-hover:text-muted-foreground/40"
-            style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: 1 }}
+            className="w-12 shrink-0 text-right font-light tabular-nums text-muted-foreground/25 transition-colors group-hover:text-muted-foreground/40 sm:w-20"
+            style={{ fontSize: "clamp(1.75rem, 4vw, 4rem)", lineHeight: 1 }}
           >
             {offer.id}
           </span>
 
           {/* Title block */}
           <div className="flex flex-1 flex-col gap-0.5 md:flex-row md:items-baseline md:gap-4">
-            <h3 className="text-2xl font-light tracking-tight md:text-3xl">
+            <h3 className="text-xl font-light tracking-tight sm:text-2xl md:text-3xl">
               {offer.title}
             </h3>
             <span className="text-sm text-muted-foreground md:text-base">
@@ -58,8 +58,8 @@ function ServiceRow({ offer, index }: { offer: Offer; index: number }) {
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-10 md:px-12 lg:px-24">
-              <div className="grid grid-cols-1 gap-8 border-t border-border pt-8 md:grid-cols-[1fr_1fr] md:gap-12">
+            <div className="px-4 pb-6 sm:px-6 sm:pb-10 md:px-12 lg:px-24">
+              <div className="grid grid-cols-1 gap-6 border-t border-border pt-6 sm:gap-8 sm:pt-8 md:grid-cols-[1fr_1fr] md:gap-12">
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {offer.description}
                 </p>
@@ -91,9 +91,9 @@ function ServiceRow({ offer, index }: { offer: Offer; index: number }) {
 
 export function Services() {
   return (
-    <section id="leistungen" className="py-28">
+    <section id="leistungen" className="py-14 sm:py-28">
       {/* Section header */}
-      <FadeIn className="mb-16 flex items-end justify-between gap-8 px-6 md:px-12 lg:px-24">
+      <FadeIn className="mb-10 flex items-end justify-between gap-4 px-4 sm:mb-16 sm:gap-8 sm:px-6 md:px-12 lg:px-24">
         <div className="flex flex-col gap-2">
           <span className="eyebrow text-brand">Leistungen</span>
           <h2 className="display-lg max-w-lg">Was wir für Sie leisten.</h2>

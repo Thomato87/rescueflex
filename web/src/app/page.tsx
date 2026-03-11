@@ -37,8 +37,8 @@ export default function Home() {
         <Services />
         <Process />
         <Differentiators />
-        <FAQ />
         <Contact />
+        <FAQ />
       </main>
       <Footer />
       <CustomCursor />

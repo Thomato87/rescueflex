@@ -123,18 +123,39 @@ export const brand = {
       title: "Kontaktaufnahme",
       description:
         "Sie schildern uns Ihren Bedarf – telefonisch, per E-Mail oder über das Kontaktformular. Unverbindlich und unkompliziert.",
+      items: [
+        "Erstkontakt innerhalb von 24 Stunden",
+        "Telefonisch, per E-Mail oder Formular",
+        "Keine Vorinformationen nötig",
+        "Vertrauliche Behandlung aller Angaben",
+      ],
+      note: "Wir antworten in der Regel noch am selben Werktag.",
     },
     {
       step: "02",
       title: "Bedarfsanalyse",
       description:
         "Wir analysieren Ihre Situation und erstellen ein massgeschneidertes Konzept oder Angebot – basierend auf echter Einsatzerfahrung.",
+      items: [
+        "Risikoanalyse und Einsatzplanung",
+        "Massgeschneidertes Konzept oder Offerte",
+        "Klärung rechtlicher Anforderungen",
+        "Abstimmung mit Ihren Ressourcen",
+      ],
+      note: "Kostenlos und unverbindlich – auch für Standardanfragen.",
     },
     {
       step: "03",
       title: "Einsatz & Umsetzung",
       description:
         "RescueFlex ist vor Ort – zuverlässig, professionell und vorbereitet. Sie konzentrieren sich auf das Wesentliche.",
+      items: [
+        "Pünktliche und vollständig ausgerüstete Crews",
+        "Koordination mit Rettungsdienst und Behörden",
+        "Laufendes Reporting bei mehrtägigen Einsätzen",
+        "Nachbesprechung auf Wunsch",
+      ],
+      note: "Verfügbar schweizweit, auch kurzfristig.",
     },
   ],
 

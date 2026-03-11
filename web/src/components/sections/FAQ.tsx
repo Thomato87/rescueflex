@@ -11,9 +11,9 @@ import { brand } from "@/data/brand";
 export function FAQ() {
   return (
     <section id="faq" className="border-y border-border bg-muted/30">
-      <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 lg:px-24">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-28 md:px-12 lg:px-24">
         {/* Header */}
-        <FadeIn className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-end">
+        <FadeIn className="mb-10 grid grid-cols-1 gap-4 sm:mb-16 sm:gap-8 md:grid-cols-2 md:items-end">
           <div className="flex flex-col gap-3">
             <Badge variant="outline" className="eyebrow w-fit">
               FAQ
@@ -40,7 +40,7 @@ export function FAQ() {
                     {faq.question}
                   </span>
                 </AccordionTrigger>
-                <AccordionContent className="pl-10 text-sm leading-relaxed text-muted-foreground">
+                <AccordionContent className="pl-7 text-sm leading-relaxed text-muted-foreground sm:pl-10">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

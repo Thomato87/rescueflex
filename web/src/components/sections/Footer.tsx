@@ -7,9 +7,9 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border bg-foreground text-background">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 lg:px-24">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16 md:px-12 lg:px-24">
         {/* Top */}
-        <div className="flex flex-col gap-12 md:flex-row md:items-start md:justify-between">
+        <div className="flex flex-col gap-8 sm:gap-12 md:flex-row md:items-start md:justify-between">
           {/* Brand */}
           <div className="flex flex-col gap-3">
             <span className="eyebrow tracking-widest">{brand.name}</span>
@@ -19,7 +19,7 @@ export function Footer() {
           </div>
 
           {/* Nav links */}
-          <div className="grid grid-cols-2 gap-x-16 gap-y-3 sm:grid-cols-2">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-3 sm:gap-x-16">
             {brand.nav.map((item) => (
               <Link
                 key={item.href}

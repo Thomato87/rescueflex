@@ -6,10 +6,10 @@ import { brand } from "@/data/brand";
 
 export function Differentiators() {
   return (
-    <section className="py-28">
-      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-24">
+    <section className="py-14 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 lg:px-24">
         {/* Header */}
-        <FadeIn className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-end">
+        <FadeIn className="mb-10 grid grid-cols-1 gap-4 sm:mb-16 sm:gap-8 md:grid-cols-2 md:items-end">
           <div className="flex flex-col gap-3">
             <Badge variant="outline" className="eyebrow w-fit">
               Warum RescueFlex
@@ -24,7 +24,7 @@ export function Differentiators() {
 
       {/* Editorial full-bleed image */}
       <FadeIn>
-        <div className="relative mx-auto mb-16 h-[40vh] max-h-[520px] min-h-[260px] max-w-7xl overflow-hidden px-6 md:px-12 lg:px-24">
+        <div className="relative mx-auto mb-10 h-[35vw] max-h-[520px] min-h-[200px] max-w-7xl overflow-hidden px-4 sm:mb-16 sm:px-6 md:px-12 lg:px-24">
           <div className="relative h-full w-full overflow-hidden rounded-sm">
             <Image
               src="/rtw-highway.png"
@@ -39,12 +39,12 @@ export function Differentiators() {
         </div>
       </FadeIn>
 
-      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 lg:px-24">
         {/* Differentiator list */}
         <Stagger className="flex flex-col">
           {brand.differentiators.map((item, i) => (
             <StaggerItem key={i}>
-              <div className="group grid grid-cols-1 gap-6 border-t border-border py-10 transition-colors hover:bg-muted/20 md:grid-cols-[1fr_2fr] md:gap-12 md:px-4">
+              <div className="group grid grid-cols-1 gap-4 border-t border-border py-6 transition-colors hover:bg-muted/20 sm:gap-6 sm:py-10 md:grid-cols-[1fr_2fr] md:gap-12 md:px-4">
                 <div className="flex items-start gap-4">
                   <span className="eyebrow text-brand tabular-nums">
                     {String(i + 1).padStart(2, "0")}

@@ -121,39 +121,30 @@ export const brand = {
     {
       step: "01",
       title: "Kontaktaufnahme",
-      description:
-        "Sie schildern uns Ihren Bedarf – telefonisch, per E-Mail oder über das Kontaktformular. Unverbindlich und unkompliziert.",
+      description: "Schildern Sie uns Ihren Bedarf – unverbindlich und unkompliziert.",
       items: [
-        "Erstkontakt innerhalb von 24 Stunden",
+        "Antwort innerhalb von 24 Stunden",
         "Telefonisch, per E-Mail oder Formular",
-        "Keine Vorinformationen nötig",
-        "Vertrauliche Behandlung aller Angaben",
       ],
       note: "Wir antworten in der Regel noch am selben Werktag.",
     },
     {
       step: "02",
       title: "Bedarfsanalyse",
-      description:
-        "Wir analysieren Ihre Situation und erstellen ein massgeschneidertes Konzept oder Angebot – basierend auf echter Einsatzerfahrung.",
+      description: "Wir analysieren Ihre Situation und erstellen ein massgeschneidertes Angebot.",
       items: [
         "Risikoanalyse und Einsatzplanung",
-        "Massgeschneidertes Konzept oder Offerte",
-        "Klärung rechtlicher Anforderungen",
-        "Abstimmung mit Ihren Ressourcen",
+        "Kostenlos und unverbindlich",
       ],
       note: "Kostenlos und unverbindlich – auch für Standardanfragen.",
     },
     {
       step: "03",
       title: "Einsatz & Umsetzung",
-      description:
-        "RescueFlex ist vor Ort – zuverlässig, professionell und vorbereitet. Sie konzentrieren sich auf das Wesentliche.",
+      description: "RescueFlex ist vor Ort – zuverlässig, professionell und vorbereitet.",
       items: [
-        "Pünktliche und vollständig ausgerüstete Crews",
-        "Koordination mit Rettungsdienst und Behörden",
-        "Laufendes Reporting bei mehrtägigen Einsätzen",
-        "Nachbesprechung auf Wunsch",
+        "Vollständig ausgerüstete Crews",
+        "Schweizweit verfügbar, auch kurzfristig",
       ],
       note: "Verfügbar schweizweit, auch kurzfristig.",
     },
@@ -191,7 +182,7 @@ export const brand = {
     {
       question: "Für welche Veranstaltungsgrössen sind Sie geeignet?",
       answer:
-        "Von kleinen Firmenanlässen mit 50 Personen bis zu grossen Outdoor-Events mit mehreren Tausend Besuchern. Grösse und Personaleinsatz werden individuell auf Ihre Veranstaltung abgestimmt.",
+        "Für kleine Veranstaltungen bis 100 Personsn, Sportevents, Verneinsanlässe, Firmenanlässe.",
     },
     {
       question: "Was kostet ein Sanitätsdienst?",

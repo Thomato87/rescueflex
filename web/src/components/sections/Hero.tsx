@@ -80,10 +80,10 @@ function ContoursCanvas({ darkMode }: { darkMode: boolean }) {
       ctx.clearRect(0, 0, w, h);
 
       // Marching squares – draw iso-contours
-      const LEVELS = 28;
+      const LEVELS = 14;
       for (let li = 0; li < LEVELS; li++) {
         const thr = -1.6 + (li / (LEVELS - 1)) * 3.2;
-        const isMajor = li % 4 === 0;
+        const isMajor = li % 3 === 0;
         ctx.strokeStyle = darkRef.current
           ? `rgba(60,140,255,${isMajor ? 0.28 : 0.14})`
           : `rgba(0,20,60,${isMajor ? 0.22 : 0.10})`;

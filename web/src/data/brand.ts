@@ -19,7 +19,7 @@ export const brand = {
 
   contact: {
     email: "info@rescueflex.ch",
-    phone: "+41 xx xxx xx xx",
+    phone: "+41 76 447 68 61",
     address: "Schweiz",
   },
 

@@ -72,10 +72,10 @@ function ContoursCanvas({ darkMode }: { darkMode: boolean }) {
 
       ctx.clearRect(0, 0, w, h);
 
-      const LEVELS = 28;
+      const LEVELS = 14;
       for (let li = 0; li < LEVELS; li++) {
         const thr = -1.6 + (li / (LEVELS - 1)) * 3.2;
-        const isMajor = li % 4 === 0;
+        const isMajor = li % 3 === 0;
         // Dark mode: white lines, Light mode: light blue lines
         ctx.strokeStyle = `rgba(100,150,220,${isMajor ? 0.5 : 0.25})`;
         ctx.lineWidth = isMajor ? 2.2 : 1.4;

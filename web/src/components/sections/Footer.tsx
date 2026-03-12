@@ -77,7 +77,9 @@ function ContoursCanvas({ darkMode }: { darkMode: boolean }) {
         const thr = -1.6 + (li / (LEVELS - 1)) * 3.2;
         const isMajor = li % 3 === 0;
         // Dark mode: white lines, Light mode: light blue lines
-        ctx.strokeStyle = `rgba(100,150,220,${isMajor ? 0.5 : 0.25})`;
+        ctx.strokeStyle = darkRef.current
+          ? `rgba(100,150,220,${isMajor ? 0.5 : 0.25})`
+          : `rgba(0,0,0,${isMajor ? 0.18 : 0.09})`;
         ctx.lineWidth = isMajor ? 2.2 : 1.4;
         ctx.beginPath();
 
@@ -140,7 +142,7 @@ function ContoursCanvas({ darkMode }: { darkMode: boolean }) {
         inset: 0,
         width: "100%",
         height: "100%",
-        mixBlendMode: "lighten",
+        mixBlendMode: darkMode ? "lighten" : "multiply",
       }}
     />
   );
@@ -156,13 +158,7 @@ export function Footer() {
   }, []);
 
   return (
-    <footer
-      className="relative overflow-hidden bg-gradient-to-b from-foreground via-foreground to-foreground/95"
-      style={{
-        "--background": "oklch(0.987 0.004 252)",
-        "--foreground": "oklch(0.13 0.028 258)",
-      } as React.CSSProperties}
-    >
+    <footer className="relative overflow-hidden bg-gradient-to-b from-background via-background to-background/95">
       {/* Animated contour lines canvas */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {mounted && <ContoursCanvas darkMode={resolvedTheme === "dark"} />}
@@ -176,12 +172,12 @@ export function Footer() {
             <div className="flex flex-col gap-4">
               <div className="inline-flex items-center gap-2 w-fit">
                 <div className="w-2 h-2 bg-blue-500 rounded-full" />
-                <span className="eyebrow tracking-widest text-background">{brand.name}</span>
+                <span className="eyebrow tracking-widest text-foreground">{brand.name}</span>
               </div>
-              <p className="text-sm leading-relaxed text-background/70 max-w-sm">
+              <p className="text-sm leading-relaxed text-foreground/70 max-w-sm">
                 {brand.tagline}
               </p>
-              <p className="text-xs text-background/50">
+              <p className="text-xs text-foreground/50">
                 Seit {brand.established}
               </p>
             </div>
@@ -189,13 +185,13 @@ export function Footer() {
 
           {/* Navigation column */}
           <div className="">
-            <h4 className="eyebrow text-background mb-6 text-xs">Navigation</h4>
+            <h4 className="eyebrow text-foreground mb-6 text-xs">Navigation</h4>
             <nav className="flex flex-col gap-4">
               {brand.nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm text-background/60 hover:text-background transition-all duration-300 flex items-center gap-2 group"
+                  className="text-sm text-foreground/60 hover:text-foreground transition-all duration-300 flex items-center gap-2 group"
                 >
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity">
                     <ArrowRight className="w-3 h-3" />
@@ -208,23 +204,23 @@ export function Footer() {
 
           {/* Contact column */}
           <div className="">
-            <h4 className="eyebrow text-background mb-6 text-xs">Kontakt</h4>
+            <h4 className="eyebrow text-foreground mb-6 text-xs">Kontakt</h4>
             <div className="flex flex-col gap-4">
               <a
                 href={`mailto:${brand.contact.email}`}
-                className="text-sm text-background/60 hover:text-background transition-all duration-300 flex items-center gap-3 group"
+                className="text-sm text-foreground/60 hover:text-foreground transition-all duration-300 flex items-center gap-3 group"
               >
                 <Mail className="w-4 h-4 flex-shrink-0 group-hover:text-blue-400 transition-colors" />
                 <span className="truncate">{brand.contact.email}</span>
               </a>
               <a
                 href={`tel:${brand.contact.phone}`}
-                className="text-sm text-background/60 hover:text-background transition-all duration-300 flex items-center gap-3 group"
+                className="text-sm text-foreground/60 hover:text-foreground transition-all duration-300 flex items-center gap-3 group"
               >
                 <Phone className="w-4 h-4 flex-shrink-0 group-hover:text-blue-400 transition-colors" />
                 {brand.contact.phone}
               </a>
-              <div className="text-sm text-background/60 flex items-center gap-3">
+              <div className="text-sm text-foreground/60 flex items-center gap-3">
                 <MapPin className="w-4 h-4 flex-shrink-0 text-blue-500/50" />
                 {brand.location}
               </div>
@@ -234,8 +230,8 @@ export function Footer() {
           {/* CTA column */}
           <div className="flex flex-col gap-4 justify-between">
             <div>
-              <h4 className="eyebrow text-background mb-4 text-xs">Lust auf einen Auftrag?</h4>
-              <p className="text-xs text-background/60 leading-relaxed">
+              <h4 className="eyebrow text-foreground mb-4 text-xs">Lust auf einen Auftrag?</h4>
+              <p className="text-xs text-foreground/60 leading-relaxed">
                 Kontaktieren Sie uns unverbindlich für ein persönliches Gespräch.
               </p>
             </div>
@@ -250,24 +246,24 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-background/20 to-transparent mb-12" />
+        <div className="h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent mb-12" />
 
         {/* Bottom section */}
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6 text-xs text-background/50">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6 text-xs text-foreground/50">
             <span>
               © {year} {brand.name}. Alle Rechte vorbehalten.
             </span>
             <div className="flex gap-6">
               <Link 
                 href="/impressum" 
-                className="hover:text-background/80 transition-colors duration-300"
+                className="hover:text-foreground/80 transition-colors duration-300"
               >
                 Impressum
               </Link>
               <Link 
                 href="/datenschutz" 
-                className="hover:text-background/80 transition-colors duration-300"
+                className="hover:text-foreground/80 transition-colors duration-300"
               >
                 Datenschutz
               </Link>
@@ -276,10 +272,10 @@ export function Footer() {
 
           {/* Social/Tech badges */}
           <div className="flex gap-4 flex-wrap">
-            <div className="px-3 py-1 rounded-full bg-background/5 border border-background/10 text-xs text-background/60 hover:border-background/30 transition-colors cursor-default">
+            <div className="px-3 py-1 rounded-full bg-foreground/5 border border-foreground/10 text-xs text-foreground/60 hover:border-foreground/30 transition-colors cursor-default">
               Made with Next.js
             </div>
-            <div className="px-3 py-1 rounded-full bg-background/5 border border-background/10 text-xs text-background/60 hover:border-background/30 transition-colors cursor-default">
+            <div className="px-3 py-1 rounded-full bg-foreground/5 border border-foreground/10 text-xs text-foreground/60 hover:border-foreground/30 transition-colors cursor-default">
               Hosted in 🇨🇭
             </div>
           </div>

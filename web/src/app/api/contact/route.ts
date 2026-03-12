@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     const data = contactSchema.parse(body);
 
     await resend.emails.send({
-      from: "RescueFlex Website <onboarding@resend.dev>", // → nach Domain-Verifikation: noreply@rescueflex.ch
+      from: "RescueFlex <noreply@rescueflex.ch>",
       to: "info@rescueflex.ch",
       replyTo: data.email,
       subject: `Neue Anfrage von ${data.name}${data.service ? ` – ${data.service}` : ""}`,
